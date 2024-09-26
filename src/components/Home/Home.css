@@ -1,0 +1,34 @@
+#home {
+  height: 100vh; 
+  justify-content: center;
+  align-items: center;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  text-align: center;
+}
+
+#home h1 {
+  font-size: 4rem; /* Taille plus grande */
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre pour le texte */
+  letter-spacing: 1.5px; /* Espacement des lettres */
+}
+
+#home p {
+  font-size: 1.6rem; /* Taille de police légèrement augmentée */
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #34495e;
+}
+
+
+.round-image {
+  padding-top: 50px;
+  border-radius: 50%; /* Rendre l'image ronde */
+  width: 250px; /* Définir la largeur souhaitée */
+  height: 250px; /* Définir la hauteur souhaitée */
+  object-fit: cover; /* Pour maintenir le rapport d'aspect */
+}

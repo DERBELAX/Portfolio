@@ -1,0 +1,16 @@
+#about {
+    padding: 50px 0;
+    background-color: #ecf0f1; /* Blanc cassé pour la section */
+  }
+  
+  #about h2 {
+    padding: 20px;
+    color: #2c3e50;
+  }
+  
+  #about p {
+    padding: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
