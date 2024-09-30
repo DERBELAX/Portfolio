@@ -1,34 +1,57 @@
+/* Styling pour la section d'accueil */
 #home {
-  height: 100vh; 
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ecf0f1;
-  color: #2c3e50;
+  height: 100vh;
+  background-color: #F6F3EC; 
+  color: #0e1419;
   text-align: center;
+  padding-top: 100px; 
 }
 
 #home h1 {
-  font-size: 4rem; /* Taille plus grande */
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: #2c3e50;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre pour le texte */
-  letter-spacing: 1.5px; /* Espacement des lettres */
+  color: #3e3e3e;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15); /* Ombre légère */
+  letter-spacing: 1.2px; 
 }
 
 #home p {
-  font-size: 1.6rem; /* Taille de police légèrement augmentée */
+  font-size: 1.5rem;
   line-height: 1.8;
   max-width: 700px;
   margin: 0 auto;
-  color: #34495e;
+  color: #B9A590;
+  padding-top: 20px;
+}
+/* Style pour l'image ronde */
+.round-image {
+  border-radius: 50%;
+  width: 220px; 
+  height: 220px;
+  object-fit: cover;
+  margin-bottom: 30px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour l'image */
+  transition: transform 0.3s ease-in-out; /* Ajoute une animation */
+}
+
+/* Animation au survol de l'image */
+.round-image:hover {
+  transform: scale(1.05); /* Augmentation légère de la taille au survol */
+}
+
+/* Transition fluide pour les sections */
+section {
+  transition: all 0.5s ease-in-out;
+  padding: 60px 0;
 }
 
 
-.round-image {
-  padding-top: 50px;
-  border-radius: 50%; 
-  width: 250px; 
-  height: 250px; 
-  object-fit: cover; 
+/* Ajout du défilement fluide */
+html {
+  scroll-behavior: smooth;
 }

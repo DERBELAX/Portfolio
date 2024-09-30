@@ -57,7 +57,7 @@ function Projects() {
               <div className="card-body">
                 <h5 className="card-title">{project.name}</h5>
                 <p className="card-text project-description">{project.description}</p>
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Voir le site</a>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark">Voir le site</a>
                 <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark mx-2">
                   <FaGithub /> 
                 </a>

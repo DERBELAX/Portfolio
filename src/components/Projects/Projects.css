@@ -1,7 +1,7 @@
 
 #projects {
   padding: 50px 0;
-  background-color: #ecf0f1;
+  background-color: #F6F3EC;
 }
 
 .project-card {
@@ -29,19 +29,17 @@
   margin-bottom: auto;
 }
 
-.btn-primary {
-  background-color: #e67e22;
+.btn{
   border: none;
   margin-top: 10px;
-  padding: 10px 20px; /* Agrandir les boutons */
-  border-radius: 50px; /* Arrondir les coins */
-  font-weight: bold; /* Rendre le texte plus visible */
+  padding: 10px 20px; 
+  border-radius: 50px; 
+  font-weight: bold; 
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 
-.btn-primary:hover {
-  background-color: #d35400;
-  transform: scale(1.05); /* Légère mise en avant au survol */
+.btn:hover {
+  transform: scale(1.05); 
 }
 

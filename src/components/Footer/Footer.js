@@ -12,7 +12,7 @@ function Footer() {
           <a href="https://linkedin.com/in/ton-profil" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin"></i>
           </a>
-          <a href="mailto:tonemail@example.com">
+          <a href="marwaderbel21@example.com">
             <i className="fas fa-envelope"></i>
           </a>
         </div>

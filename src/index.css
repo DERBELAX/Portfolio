@@ -1,24 +1,10 @@
-
-
 body {
-  font-family: 'Montserrat', sans-serif; /* Police moderne et professionnelle */
-  color: #2c3e50; /* Texte en bleu foncé */
-  background-color: #ecf0f1; /* Fond blanc cassé */
+  font-family: 'Montserrat', sans-serif; 
+  color: #f2dcb8; 
+  background-color: #f2dcb8; 
   margin: 0;
   padding: 0;
   line-height: 1.6;
-}
-
-h1, h2, h3 {
-  color: #2c3e50; /* Couleur principale pour les titres */
-}
-
-a {
-  color: #e67e22; /* Couleur d'accentuation pour les liens */
-}
-
-a:hover {
-  color: #d35400; /* Accentuation lors du survol */
 }
 
 .container {
@@ -28,7 +14,7 @@ a:hover {
 
 hr {
   border-top: 1px solid #bdc3c7;
-  width: 80%;
+  width: 100%;
   margin: 30px auto;
 }
 
@@ -41,4 +27,5 @@ hr {
   .project-image {
     height: 150px;
   }
+
 }

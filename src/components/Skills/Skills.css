@@ -1,44 +1,51 @@
 #skills {
   padding: 50px 0;
   background-color: #fff;
+  animation: fadeInUp 1s ease-in-out; /* Animation d'apparition */
 }
 
 #skills h2 {
   color: #2c3e50;
-  text-align: center; /* Centrer le titre principal */
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  opacity: 0; /* Initialement caché */
+  animation: fadeInDown 0.8s forwards; /* Animation pour le titre */
 }
 
 .row {
   justify-content: center;
-  align-items: flex-start; 
+  align-items: flex-start;
   gap: 30px;
 }
 
 .technique, .outils {
   border-radius: 20px;
-  background-color: antiquewhite;
+  background-color: #faf3e0; /* Couleur douce */
   padding: 20px;
-  width: 45%; 
-  max-width: 400px; /* Limite maximale des colonnes */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre */
-  text-align: center; /* Centrer le contenu des colonnes */
+  width: 45%;
+  max-width: 400px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Ombre plus marquée */
+  text-align: center;
+  opacity: 0; /* Initialement caché */
+  transform: translateY(50px); /* Déplacement initial vers le bas */
+  animation: fadeInUp 1s ease-in-out forwards;
+  transition: transform 0.3s ease-in-out;
 }
 
 .technique h3, .outils h3 {
-  text-align: center; /* Centrer les titres "Frontend" et "Backend" */
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 20px;
   color: #34495e;
 }
 
-/* Mise en forme des compétences */
 ul {
   list-style: none;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* Espacement entre les compétences */
+  gap: 20px;
 }
 
 ul li {
@@ -48,15 +55,45 @@ ul li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease; /* Ajoute une transition au survol */
 }
 
 ul li svg {
   font-size: 3rem; /* Taille des icônes */
   margin-bottom: 10px;
-  color: #e67e22; /* Couleur des icônes */
+  color: #e67e22;
+  transition: transform 0.3s ease-in-out, color 0.3s ease; /* Animation sur le hover */
 }
 
-/* Changement de couleur des icônes au survol */
+/* Animation au survol */
+ul li:hover {
+  transform: scale(1.1); /* Augmentation légère de la taille au survol */
+}
+
 ul li:hover svg {
-  color: #d35400;
+  color: #d35400; /* Couleur changée au survol */
+  transform: rotate(15deg); /* Rotation au survol */
+}
+
+/* Animation pour l'apparition de la section */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
