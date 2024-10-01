@@ -3,8 +3,10 @@ import './Navbar.css';
 import logo from '../../images/Logo.svg.jpg';
 
 function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false); //État pour le défilement
 
+
+  // Change l'état selon le défilement
   const handleScroll = () => {
     if (window.scrollY > 50) {
       setScrolled(true);
@@ -12,7 +14,7 @@ function Navbar() {
       setScrolled(false);
     }
   };
-
+  // Attache et détache l'événement 'scroll'
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {

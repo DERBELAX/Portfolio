@@ -17,15 +17,3 @@ hr {
   width: 100%;
   margin: 30px auto;
 }
-
-
-@media (max-width: 768px) {
-  .navbar-brand img {
-    width: 30px;
-  }
-
-  .project-image {
-    height: 150px;
-  }
-
-}

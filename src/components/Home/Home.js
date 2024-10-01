@@ -14,15 +14,13 @@ function Home() {
     <div>
       <Navbar />
       <section id="home" className="container text-center my-5">
-   
-  
-           <img src={Image} alt="Hot visual" className="img-fluid my-3 round-image" />
+           <img src={Image} alt="Portrail du développeur" className="img-fluid my-3 round-image" />
         <h1>Hello! Je suis Marwa Derbel</h1>
         <br></br>
         <p className="lead">
           Développeuse Web Full Stack spécialisée dans la création d'applications modernes et performantes...
         </p>
-           
+    
       </section>
       
       <hr />
