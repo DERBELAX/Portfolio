@@ -11,35 +11,35 @@ function Projects() {
   const projects = [
     {
       name: 'Booki',
-      description: 'Création d une page d accueil responsive d une agence de voyage',
+      description: "Création d'une page d'accueil responsive pour une agence de voyage : intégrer le contenu selon la maquette avec HTML et CSS, assurer l'interface responsive, et configurer l'environnement de développement front-end.",
       image: Booki,
       link: 'https://derbelax.github.io/booki-starter-code/',
       githubLink: 'https://github.com/DERBELAX/booki-starter-code/tree/P2-BOOKI'
     },
     {
       name: 'Sophie Bluel',
-      description: 'Création d un site web dynamique avec JavaScript',
+      description: "Création d'un site web dynamique avec JavaScript : manipuler le DOM, récupérer les données des utilisateurs via des formulaires et gérer les événements.",
       image: Sophie,
       link: 'https://derbelax.github.io/Portfolio-architecte-sophie-bluel/',
       githubLink: 'https://github.com/DERBELAX/Portfolio-architecte-sophie-bluel/tree/projet-3'
     },
     {
       name: 'Nina Carducci',
-      description: 'Débugger grâce aux Chrome DevTools et optimiser les performances dun site de photographe Nina Carducci',
+      description: "Débugger grâce aux Chrome DevTools et optimiser les performances d'un site de photographe Nina Carducci.",
       image: Nina,
       link: 'https://6703a8caa3c1fd7c766b90a8--incredible-lollipop-e43c18.netlify.app/',
       githubLink: 'https://github.com/DERBELAX/Nina-Carducci-Dev/tree/Projet-4'
     },
     {
       name: 'Kasa',
-      description: 'Création d unsite de location immobilière',
+      description: "Création d'un site de location immobilière : configurer la navigation avec React Router, développer l'interface avec des composants React et intégrer des animations avec Sass.",
       image: Kasa,
       link: 'https://derbelax.github.io/projet-5-Kasa/',
       githubLink: 'https://github.com/DERBELAX/projet-5-Kasa'
     },
     {
       name: 'Mon Vieux Grimoire',
-      description: 'Développer le backend d un site de référencement et de notation de livres avec Node.js.',
+      description: "Développement du backend d'un site de référencement et de notation de livres avec Node.js : implémenter l'inscription et la connexion des utilisateurs, stocker les données de manière sécurisée dans la base de données, réaliser des opérations CRUD sécurisées et optimiser les images.",
       image: Grimoire,
       link: 'https://derbelax.github.io/projet-5-Kasa/',
       githubLink: 'https://github.com/DERBELAX/P6-Dev-Web-livres/tree/Mon-Vieux-Grimoire'
