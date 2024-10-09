@@ -14,8 +14,9 @@
 }
 
 .row {
+ 
   justify-content: center;
-  align-items: flex-start;
+  align-items:flex-start;
   gap: 30px;
 }
 
@@ -39,16 +40,16 @@
   color: #34495e;
 }
 
-ul {
+.outils ul, .technique ul {
   list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  padding: 0;
 }
 
-ul li {
+.outils ul li, .technique ul li {
   font-size: 1.2rem;
   margin-bottom: 10px;
   color: #34495e;
@@ -58,7 +59,7 @@ ul li {
   transition: transform 0.3s ease, color 0.3s ease; /* Ajoute une transition au survol */
 }
 
-ul li svg {
+.outils ul li svg, .technique ul li svg {
   font-size: 3rem; /* Taille des icônes */
   margin-bottom: 10px;
   color: #e67e22;

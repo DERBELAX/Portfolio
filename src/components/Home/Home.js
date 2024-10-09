@@ -18,7 +18,7 @@ function Home() {
         <h1>Hello! Je suis Marwa Derbel</h1>
         <br></br>
         <p className="lead">
-          Développeuse Web Full Stack spécialisée dans la création d'applications modernes et performantes...
+          Développeuse Web Full Stack spécialisée dans la création d'applications modernes et performantes.
         </p>
     
       </section>

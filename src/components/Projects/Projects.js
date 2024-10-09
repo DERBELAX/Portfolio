@@ -27,7 +27,7 @@ function Projects() {
       name: 'Nina Carducci',
       description: 'Débugger grâce aux Chrome DevTools et optimiser les performances dun site de photographe Nina Carducci',
       image: Nina,
-      link: 'https://derbelax.github.io/Nina-Carducci-Dev/',
+      link: 'https://6703a8caa3c1fd7c766b90a8--incredible-lollipop-e43c18.netlify.app/',
       githubLink: 'https://github.com/DERBELAX/Nina-Carducci-Dev/tree/Projet-4'
     },
     {
