@@ -13,10 +13,15 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const emailParams = {
+      from_name: form.name,
+      email_id: form.email,
+      message: form.message,
+    };
     emailjs.send(
       process.env.REACT_APP_EMAILJS_SERVICE_ID,
       process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-      form,
+      emailParams,
       process.env.REACT_APP_EMAILJS_USER_ID
     )
     .then((response) => {
