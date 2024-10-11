@@ -8,6 +8,7 @@ import Nina from'../../images/Nina .png';
 import Grimoire from'../../images/Grimoire.png';
 
 function Projects() {
+  // Tableau des projets avec leurs détails : nom, description, image, liens vers le projet et GitHub
   const projects = [
     {
       name: 'Booki',

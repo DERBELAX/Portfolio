@@ -23,16 +23,18 @@ function Navbar() {
   }, []);
 
   return (
+     // Ajout d'une classe CSS conditionnelle selon l'état de défilement (scrolled)
     <nav className={`navbar navbar-expand-lg fixed-top ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
+        {/* Logo qui renvoie à la section d'accueil lorsqu'on clique dessus */}
         <a className="navbar-brand" href="#home">
           <img src={logo} alt="Logo" className="logo" />
         </a>
-
+              {/* Bouton pour la version mobile qui permet de dérouler le menu */}
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        
+        {/* Menu déroulant avec les liens de navigation */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
