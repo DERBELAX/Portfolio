@@ -4,18 +4,29 @@ import'./About.css';
 
 function About() {
   return (
-    <div className="container my-5">
+      <section className="container my-5">
       <h2>À propos de moi</h2>
-      <p>Développeuse Web Full Stack spécialisée dans la création d'applications modernes et performantes.
-          J'ai choisi d'en faire mon métier suite à une reconversion professionnelle. En suivant une formation
-          de développeur web auprès d'OpenClassrooms, où j'ai acquis des compétences solides en développement front-end
-          avec HTML, CSS, JavaScript et React. Pour enrichir mon parcours, j'ai également travaillé avec Node.js,
-          me permettant d'explorer le développement full-stack. Je suis actuellement en recherche d'opportunités
-          en tant que développeuse Full-Stack. Vous pouvez découvrir ci-dessous mes projets réalisés au cours de ma formation.
-          N'hésitez pas à me contacter via le formulaire en bas de page !
-        
+      <div>
+        <h3>Partir d’une expertise agronomique...</h3>
+        <p>Après plusieurs années sur le terrain à concevoir des projets agricoles innovants et à collaborer avec des exploitants, 
+          j’ai appris une leçon clé : résoudre des problèmes complexes exige une combinaison d’analyse, d’adaptabilité et de collaboration. 
+          En tant qu’ingénieure agronome, j’ai optimisé des systèmes d’irrigation, développé des pratiques culturales durables, et mené des études d’impact environnemental. 
+          Ces expériences ont également affiné mes compétences en gestion de projet, en coordination d’équipes, et en innovation créative dans le domaine agricole.
         </p>
-    </div>
+      </div>
+      <div>
+        <h3>... pour coder et programmer !</h3>
+      <p>
+      Un jour, en cherchant à automatiser une analyse agronomique, je me suis plongée dans le code. 
+      Ce fut une révélation : transformer des données en solutions concrètes est devenu une extension naturelle de mes compétences. 
+      Comme en agronomie, le développement web demande rigueur, logique et créativité. 
+      Aujourd’hui, forte de projets aboutis et d’une certification en développement web, je suis développeuse front-end spécialisée en React. 
+      J’allie mon sens de l’organisation et ma passion pour la résolution de problèmes pour concevoir des interfaces élégantes et fonctionnelles, toujours centrées sur l’expérience utilisateur.
+      </p>
+      </div>
+      
+    </section>
+   
   );
 }
 
