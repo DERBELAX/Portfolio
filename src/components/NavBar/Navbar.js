@@ -5,7 +5,6 @@ import logo from '../../images/Logo.svg.jpg';
 function Navbar() {
   const [scrolled, setScrolled] = useState(false); //État pour le défilement
 
-
   // Change l'état selon le défilement
   const handleScroll = () => {
     if (window.scrollY > 50) {
