@@ -1,20 +1,19 @@
 .navbar {
   background-color: transparent;
   transition: background-color 0.5s ease, padding 0.5s ease;
-  width: 100%;
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .navbar .logo {
   width: 200px;
   height: 200px;
-  margin-right: 20px; /* Add margin to the right of the logo */
+  margin-right: 20px;
 }
 
 .navbar.scrolled {
-  background-color: #ECE4DA; 
+  background-color: #ECE4DA;
   padding: 5px 20px;
 }
 
@@ -23,12 +22,8 @@
   height: 50px;
 }
 
-.navbar-nav {
-  margin-left: auto; /* Aligns nav items to the right */
-}
-
 .navbar-nav .nav-link {
-  color: #024155; 
+  color: #024155;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -37,20 +32,43 @@
   color: #3f240a;
 }
 
-/* Mobile view adjustments */
+/* STYLE ICÔNE BURGER */
+.navbar-toggler {
+  border: none;
+  padding: 4px 8px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,0,0,0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+
+/* ===== MOBILE STYLES ===== */
 @media (max-width: 768px) {
   .navbar {
-    background-color: #ECE4DA; /* Fond non transparent pour mobile */
+    background-color: #ECE4DA;
+    padding: 5px 10px;
   }
-  .navbar-nav {
-    text-align: center; /* Center links in mobile view */
+
+  .navbar .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
   }
 
   .navbar-collapse {
-    margin-top: 10px; /* Space between the logo and the collapsible menu */
+    margin-top: 5px;
   }
-   .navbar .logo {
-    width: 80px; /* Ajuste la taille du logo pour mobile */
-    height: 80px;
+
+  .navbar-nav {
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 8px 0;
   }
 }

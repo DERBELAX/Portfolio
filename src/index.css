@@ -1,19 +1,21 @@
 body {
-  font-family: 'Montserrat', sans-serif; 
-  color: #f2dcb8; 
-  background-color: #f2dcb8; 
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f2dcb8;
+  color: #2c2c2c;
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  min-width: 320px;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
+
+/* Ajout d’un espace en haut pour la navbar uniquement en desktop */
+@media (min-width: 768px) {
+  body {
+    padding-top: 80px; /* ajuste selon la hauteur réelle de ta navbar */
+  }
 }
 
-hr {
-  border-top: 1px solid #bdc3c7;
-  width: 100%;
-  margin: 30px auto;
-}
