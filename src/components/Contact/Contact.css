@@ -1,48 +1,21 @@
 #contact {
-    padding: 50px 0;
-    background-color: #fff;
-  }
-  
-  .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .contact-form input, .contact-form textarea {
-    border: 1px solid #F6F3EC;
-    border-radius: 5px;
-    padding: 10px;
-    width: 100%;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-  }
-  
-  .contact-form button {
-    background-color: #B9A590;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  
-  .contact-form button:hover {
-    background-color: #574C3F;
-  }
-  /* Centrer le conteneur du formulaire */
+  padding: 50px 0;
+  background-color: #fff;
+}
+
 .contact-container {
-  max-width: 300px;
+  max-width: 500px; 
   margin: 0 auto;
   padding: 20px;
-  background-color:#F6F3EC;
+  background-color: #F6F3EC;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Moderniser le formulaire */
+
 .contact-form .small-input {
-  font-size: 0.875rem;
-  padding: 10px;
+  font-size: 1rem; 
+  padding: 12px;
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: #fff;
@@ -52,12 +25,13 @@
 .contact-form .small-input:focus {
   border-color: #22292f;
   box-shadow: 0 0 5px rgba(32, 35, 37, 0.5);
+  outline: none;
 }
 
 /* Bouton moderne */
 .btn-primary {
-  background-color: #36404b;
-  border: none;
+  background-color: #B9A590 !important;
+  border: none !important;
   padding: 12px;
   font-size: 1rem;
   border-radius: 5px;
@@ -68,7 +42,7 @@
   background-color: #2e343a;
 }
 
-/* Styles pour les icônes centrées */
+/* Icônes sociales */
 .social-links {
   display: flex;
   justify-content: center;
@@ -79,15 +53,51 @@
 .icon-link {
   color: #333;
   margin: 0 15px;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .icon-link:hover {
   color: #6e4b29;
+  transform: scale(1.2); /* petit zoom */
 }
 
-/* Cacher les soulignements */
 .icon-link:hover,
 .icon-link:focus {
   text-decoration: none;
+}
+
+/*  Messages succès / erreur */
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+/* Animation fade-in / fade-out */
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+/* Responsive mobile */
+@media (max-width: 576px) {
+  .contact-container {
+    max-width: 90%;
+  }
 }

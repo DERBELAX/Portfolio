@@ -2,6 +2,8 @@ import React from 'react';
 import './Footer.css';
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="footer bg-dark text-white py-4">
       <div className="container text-center">
@@ -12,11 +14,11 @@ function Footer() {
           <a href="https://linkedin.com/in/ton-profil" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin"></i>
           </a>
-          <a href="marwaderbel21@example.com">
+          <a href="mailto:marwaderbel21@example.com">
             <i className="fas fa-envelope"></i>
           </a>
         </div>
-        <p className="mb-0">© 2024 Marwa Derbel. Tous droits réservés</p>
+        <p className="mb-0">© {currentYear} Marwa Derbel. Tous droits réservés</p>
       </div>
     </footer>
   );
