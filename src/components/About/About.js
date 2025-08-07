@@ -35,7 +35,7 @@ function About() {
       >
         {/* Bloc gauche — Profil de développeuse web */}
         <motion.div className="about-section" variants={smoothIn(100)}>
-          <h3>Profil de développeuse web — Front-end React</h3>
+          <h3>Profil de développeuse web <br></br>Front-end React</h3>
           <p>
             <strong>Développeuse front-end spécialisée en React.js</strong>, je conçois des
             interfaces <strong>performantes</strong>, <strong>accessibles</strong> et{" "}
@@ -61,7 +61,7 @@ function About() {
 
         {/* Bloc droit — Atout différenciant */}
         <motion.div className="about-section" variants={smoothIn(-100)}>
-          <h3>Atout différenciant — Analyse et gestion de projets complexes</h3>
+          <h3>Atout différenciant <br></br>Analyse et gestion de projets complexes</h3>
           <p>
             Avant le développement web, j’ai exercé comme <strong>ingénieure agronome</strong>,
             conduisant des <strong>projets complexes</strong> avec coordination multi-acteurs,
