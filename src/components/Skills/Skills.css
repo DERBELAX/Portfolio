@@ -1,100 +1,188 @@
-#skills {
-  padding: 50px 0;
-  background-color: #fff;
-  animation: fadeInUp 1s ease-in-out; /* Animation d'apparition */
+/* Section */
+#skills{
+  padding:50px 0;
+  background-color:var(--bg);
+  animation:fadeInUp .8s ease-in-out;
+}
+#skills h2{
+  color:var(--text);
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:40px;
+  opacity:0;
+  animation:fadeInDown .6s forwards;
 }
 
-#skills h2 {
-  color: #2c3e50;
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  opacity: 0; /* Initialement caché */
-  animation: fadeInDown 0.8s forwards; /* Animation pour le titre */
+/* === Grille 2 colonnes égales (desktop), 1 sur mobile === */
+.skills-grid{
+  display:grid;
+  grid-template-columns:1fr; /* mobile */
+  gap:32px;
+  align-items:stretch;
+}
+@media (min-width: 992px){
+  .skills-grid{
+    grid-template-columns:repeat(2, minmax(480px, 1fr));
+  }
+}
+@media (min-width: 1400px){
+  .skills-grid{
+    grid-template-columns:repeat(2, minmax(560px, 1fr));
+    gap:36px;
+  }
 }
 
-.row {
- 
-  justify-content: center;
-  align-items:flex-start;
-  gap: 30px;
+/* Cartes */
+.card-box{
+  border-radius:20px;
+  background-color:var(--surface);
+  border:1px solid var(--border);
+  padding:24px;
+  box-shadow:var(--shadow);
+  text-align:center;
+
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  opacity:0;
+  transform:translateY(50px);
+  animation:fadeInUp .8s ease-in-out forwards;
+  transition:transform .3s ease-in-out, background-color .25s, color .25s, border-color .25s;
+}
+.card-box h3{
+  font-size:1.6rem;
+  margin-bottom:18px;
+  color:var(--text);
+}
+.card-box ul{
+  list-style:none;
+  display:flex; flex-wrap:wrap;
+  justify-content:center; gap:18px 22px;
+  padding:0; margin:0;
+  flex:1 1 auto; /* pousse le bouton en bas */
 }
 
-.technique, .outils {
-  border-radius: 20px;
-  background-color: #faf3e0; 
-  padding: 20px;
-  width: 45%;
-  max-width: 400px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Ombre plus marquée */
-  text-align: center;
-  opacity: 0; /* Initialement caché */
-  transform: translateY(50px); /* Déplacement initial vers le bas */
-  animation: fadeInUp 1s ease-in-out forwards;
-  transition: transform 0.3s ease-in-out;
+/* Lien item */
+.skill-link{
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  text-decoration:none; color:var(--text);
+  padding:10px 8px; border-radius:12px;
+  transition:transform .2s ease, color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.skill-link svg{ color:var(--accent); font-size:2.6rem; transition:transform .2s ease, color .2s ease; }
+.skill-label{ font-size:1.05rem; }
+.skill-link .ext{ opacity:.7; font-size:1rem; }
+.skill-link:hover{ transform:translateY(-4px) scale(1.04); background:rgba(0,0,0,.03); box-shadow:var(--shadow); }
+.skill-link:hover svg{ color:#d35400; transform:rotate(8deg); }
+.skill-link:focus-visible{ outline:0; box-shadow:0 0 0 3px rgba(230,126,34,.45); background:rgba(230,126,34,.08); }
+
+/* Boutons */
+.btn-toggle{
+  align-self:center;
+  margin-top:12px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  padding:.45rem .95rem;
+  border-radius:999px;
+  font-weight:600;
+  transition:background-color .2s, transform .2s, border-color .2s;
+}
+.btn-toggle:hover{ transform:translateY(-2px); background:rgba(0,0,0,.03); }
+
+/* Méthodologies (plein largeur, sous la grille) */
+.methodo{
+  border-radius:20px;
+  background-color:var(--surface);
+  border:1px solid var(--border);
+  padding:20px;
+  box-shadow:var(--shadow);
+  text-align:center;
+  margin-top:24px;
+}
+.methodo-header{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.methodo-list{
+  list-style:none;
+  display:flex; flex-wrap:wrap;
+  justify-content:center; gap:18px 22px;
+  padding:0; margin:0;
+}
+/* ----- Améliorations de lisibilité pour Méthodologies ----- */
+.methodo{ text-align:left; }                        /* lecture plus naturelle */
+.methodo h3{ color: var(--text); }
+
+/* liste en “chips” lisibles et contrastées */
+.methodo-list{
+  justify-content: flex-start;                     /* alignée à gauche */
+  gap: 12px 14px;
 }
 
-.technique h3, .outils h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #34495e;
-}
-
-.outils ul, .technique ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 0;
-}
-
-.outils ul li, .technique ul li {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #34495e;
-  display: flex;
-  flex-direction: column;
+/* transforme les items en pills */
+.methodo .skill-link{
+  flex-direction: row;                             /* icône + label sur une ligne */
   align-items: center;
-  transition: transform 0.3s ease, color 0.3s ease; /* Ajoute une transition au survol */
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
+  box-shadow: none;
 }
 
-.outils ul li svg, .technique ul li svg {
-  font-size: 3rem; /* Taille des icônes */
-  margin-bottom: 10px;
-  color: #e67e22;
-  transition: transform 0.3s ease-in-out, color 0.3s ease; /* Animation sur le hover */
+/* icône + label plus nets en dark */
+.methodo .skill-link svg{ font-size: 1.1rem; color: var(--text); opacity: .9; }
+.methodo .skill-label{ font-weight: 600; color: var(--text); }
+
+/* hover/focus adaptés au thème */
+.methodo .skill-link:hover{
+  background: var(--hover-bg);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+.methodo .skill-link:focus-visible{
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(230,126,34,.35);
 }
 
-/* Animation au survol */
-ul li:hover {
-  transform: scale(1.1); /* Augmentation légère de la taille au survol */
+/* désencombre : on peut masquer la petite icône “lien externe” ici */
+.methodo .skill-link .ext{ display: none; }
+
+/* bouton Afficher/Masquer plus visible en dark */
+.methodo .btn-toggle{
+  background: var(--chip-bg);
+  border-color: var(--chip-border);
+}
+.methodo .btn-toggle:hover{ background: var(--hover-bg); }
+
+/* s’assure que le texte n’est pas grisé */
+.methodo, .methodo *{ color: var(--text); opacity: 1; }
+
+/* Animations */
+@keyframes fadeInUp{
+  0%{ opacity:0; transform:translateY(50px); }
+  100%{ opacity:1; transform:translateY(0); }
+}
+@keyframes fadeInDown{
+  0%{ opacity:0; transform:translateY(-30px); }
+  100%{ opacity:1; transform:translateY(0); }
 }
 
-ul li:hover svg {
-  color: #d35400; /* Couleur changée au survol */
-  transform: rotate(15deg); /* Rotation au survol */
+/* Réduit les animations si demandé */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition:none !important; }
 }
 
-/* Animation pour l'apparition de la section */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Mobile */
+@media (max-width: 768px){
+  #skills h2{ font-size:2rem; }
+  .skill-link{ padding:12px 6px; }
 }
-
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+:root{
+  /* …tes variables existantes… */
+  --nav-link: #024155;
+  --nav-link-hover: #3f240a;
+}
+[data-theme="dark"]{
+  --nav-link: #e9eef3;          /* texte clair en dark */
+  --nav-link-hover: #cde8ff;    /* survol bien visible */
 }

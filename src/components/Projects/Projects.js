@@ -1,73 +1,89 @@
-import React from 'react';
-import './Projects.css'; 
-import { FaGithub } from 'react-icons/fa';  
-import Booki from'../../images/Booki.png';
-import Kasa from'../../images/Kasa.png';
-import Sophie from'../../images/Sophie.png';
-import Nina from'../../images/Nina .png';
-import Grimoire from'../../images/Grimoire.png';
+import React, { useMemo, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import './Projects.css';
+import { FaGithub, FaFilter } from 'react-icons/fa';
+import projectsData from '../../data/projects';
 
-function Projects() {
-  // Tableau des projets avec leurs détails : nom, description, image, liens vers le projet et GitHub
-  const projects = [
-    {
-      name: 'Booki',
-      description: "Création d'une page d'accueil responsive pour une agence de voyage : intégrer le contenu selon la maquette avec HTML et CSS, assurer l'interface responsive, et configurer l'environnement de développement front-end.",
-      image: Booki,
-      link: 'https://derbelax.github.io/booki-starter-code/',
-      githubLink: 'https://github.com/DERBELAX/booki-starter-code/tree/P2-BOOKI'
-    },
-    {
-      name: 'Sophie Bluel',
-      description: "Création d'un site web dynamique avec JavaScript : manipuler le DOM, récupérer les données des utilisateurs via des formulaires et gérer les événements.",
-      image: Sophie,
-      link: 'https://derbelax.github.io/Portfolio-architecte-sophie-bluel/',
-      githubLink: 'https://github.com/DERBELAX/Portfolio-architecte-sophie-bluel/tree/projet-3'
-    },
-    {
-      name: 'Nina Carducci',
-      description: "Débugger grâce aux Chrome DevTools et optimiser les performances d'un site de photographe Nina Carducci.",
-      image: Nina,
-      link: 'https://derbelax.github.io/Nina-Carducci-Dev/',
-      githubLink: 'https://github.com/DERBELAX/Nina-Carducci-Dev/tree/Projet-4'
-    },
-    {
-      name: 'Kasa',
-      description: "Création d'un site de location immobilière : configurer la navigation avec React Router, développer l'interface avec des composants React et intégrer des animations avec Sass.",
-      image: Kasa,
-      link: 'https://6703a8caa3c1fd7c766b90a8--incredible-lollipop-e43c18.netlify.app/',
-      githubLink: 'https://github.com/DERBELAX/projet-5-Kasa'
-    },
-    {
-      name: 'Mon Vieux Grimoire',
-      description: "Développement du backend d'un site de référencement et de notation de livres avec Node.js : implémenter l'inscription et la connexion des utilisateurs, stocker les données de manière sécurisée dans la base de données, réaliser des opérations CRUD sécurisées et optimiser les images.",
-      image: Grimoire,
-      githubLink: 'https://github.com/DERBELAX/P6-Dev-Web-livres/tree/Mon-Vieux-Grimoire'
-    },
-  ];
+const allTags = ['Tous', ...Array.from(new Set(projectsData.flatMap(p => p.tags)))];
+
+export default function Projects() {
+  const [active, setActive] = useState('Tous');
+
+  const visible = useMemo(() => {
+    if (active === 'Tous') return projectsData;
+    return projectsData.filter(p => p.tags.includes(active));
+  }, [active]);
 
   return (
-    <div className="container my-5">
-      <h2 className="text-center mb-4">Mes Projets</h2>
-      <div className="row">
-        {projects.map((project, index) => (
-          <div className="col-md-6 col-lg-4 mb-4" key={index}>
-            <div className="card project-card">
-              <img src={project.image} className="card-img-top project-image" alt={project.name} />
-              <div className="card-body">
-                <h5 className="card-title">{project.name}</h5>
-                <p className="card-text project-description">{project.description}</p>
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark">Voir le site</a>
-                <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark mx-2">
-                  <FaGithub /> 
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
+    <section className="container my-5" id="projects" aria-label="Projets">
+      <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+        <h2 className="mb-0">Mes Projets</h2>
+        <div className="filters" role="tablist" aria-label="Filtrer par technologie">
+          <span className="me-2 text-muted d-none d-md-inline"><FaFilter /> Filtrer :</span>
+          {allTags.map(tag => (
+            <button
+              key={tag}
+              className={`filter-pill ${active === tag ? 'active' : ''}`}
+              onClick={() => setActive(tag)}
+              role="tab"
+              aria-selected={active === tag}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
+
+      <AnimatePresence mode="popLayout">
+        <div className="row">
+          {visible.map((p, i) => (
+            <div className="col-md-6 col-lg-4 mb-4" key={`${p.name}-${i}`}>
+              <motion.article
+                className="card project-card h-100"
+                initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 16 }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+              >
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    className="card-img-top project-image"
+                    alt={`Aperçu du projet ${p.name}`}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="project-image placeholder-gradient" aria-hidden="true" />
+                )}
+
+                <div className="card-body d-flex flex-column">
+                  <h3 className="card-title h5">{p.name}</h3>
+                  <p className="card-text project-description">{p.description}</p>
+
+                  <div className="mt-auto d-flex flex-wrap gap-2">
+                    {p.link && (
+                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="btn btn-dark">
+                        Voir le site
+                      </a>
+                    )}
+                    {p.githubLink && (
+                      <a href={p.githubLink} target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark">
+                        <FaGithub className="me-1" aria-hidden="true" /> Code
+                      </a>
+                    )}
+                  </div>
+
+                  <div className="tags mt-3">
+                    {p.tags.map(t => (
+                      <span key={t} className="tag">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </motion.article>
+            </div>
+          ))}
+        </div>
+      </AnimatePresence>
+    </section>
   );
 }
-
-export default Projects;

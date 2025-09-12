@@ -1,103 +1,100 @@
-#contact {
-  padding: 50px 0;
-  background-color: #fff;
-}
+/* Section */
+#contact{ padding:72px 0; background:var(--bg); }
 
-.contact-container {
-  max-width: 500px; 
+/* Carte centrée et plus étroite */
+.contact-card{
+  max-width: 680px;                /* largeur idéale desktop */
   margin: 0 auto;
-  padding: 20px;
-  background-color: #F6F3EC;
+  padding: 28px 28px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.contact-title{
+  color: var(--text);
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+/* Champs */
+.contact-form .form-label{
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.contact-form .small-input{
+  font-size: 1rem;
+  padding: 12px 14px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--input-border, #cfcfcf);     /* fallback si var absente */
+  background: var(--input-bg, #ffffff);               /* clair */
+  color: var(--text);
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s;
 }
 
-
-.contact-form .small-input {
-  font-size: 1rem; 
-  padding: 12px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  transition: all 0.3s ease;
+.contact-form .small-input::placeholder{
+  color: var(--input-placeholder, #8c8c8c);
+  opacity: 1;
 }
 
-.contact-form .small-input:focus {
-  border-color: #22292f;
-  box-shadow: 0 0 5px rgba(32, 35, 37, 0.5);
+.contact-form .small-input:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(230,126,34,.25);          /* focus ring accessible */
   outline: none;
 }
 
-/* Bouton moderne */
-.btn-primary {
-  background-color: #B9A590 !important;
+.mb-3{ margin-bottom: 16px !important; }
+.mb-4{ margin-bottom: 20px !important; }
+
+.form-hint{
+  font-size: .9rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* Bouton */
+.btn-primary{
+  background: var(--accent) !important;
+  color:#1a1a1a;
   border: none !important;
   padding: 12px;
   font-size: 1rem;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn-primary:hover{ filter: brightness(0.95); transform: translateY(-1px); }
+.btn-primary[disabled]{ opacity: .7; cursor: not-allowed; }
+
+/* Réseaux */
+.social-links{
+  display:flex; justify-content:center; gap:18px; margin-top: 18px;
+}
+.icon-link{
+  color: var(--text);
+  transition: transform .2s, color .2s, opacity .2s;
+  opacity: .9;
+}
+.icon-link:hover{ color: var(--link-hover); transform: scale(1.1); opacity: 1; }
+
+/* Alertes (succès/erreur) */
+.alert{ border:none; border-radius:10px; padding:12px; }
+.alert-success{ background:#d4edda; color:#155724; }
+.alert-danger{ background:#f8d7da; color:#721c24; }
+
+/* Anti-bot */
+.hp{ position:absolute; left:-5000px; opacity:0; }
+
+/* Accessibilité utilitaire */
+.visually-hidden{
+  position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
 }
 
-.btn-primary:hover {
-  background-color: #2e343a;
-}
-
-/* Icônes sociales */
-.social-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.icon-link {
-  color: #333;
-  margin: 0 15px;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.icon-link:hover {
-  color: #6e4b29;
-  transform: scale(1.2); /* petit zoom */
-}
-
-.icon-link:hover,
-.icon-link:focus {
-  text-decoration: none;
-}
-
-/*  Messages succès / erreur */
-.alert-success {
-  background-color: #d4edda;
-  color: #155724;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 15px;
-}
-
-.alert-danger {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 15px;
-}
-/* Animation fade-in / fade-out */
-.fade-in {
-  opacity: 1;
-  transition: opacity 0.5s ease-in;
-}
-
-.fade-out {
-  opacity: 0;
-  transition: opacity 0.5s ease-out;
-}
-
-/* Responsive mobile */
-@media (max-width: 576px) {
-  .contact-container {
-    max-width: 90%;
-  }
+/* Responsive */
+@media (max-width: 768px){
+  .contact-card{ max-width: 92%; padding: 22px 16px; }
 }

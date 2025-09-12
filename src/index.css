@@ -1,7 +1,68 @@
-body {
+/* ===== Base globale ===== */
+:root{
+  /* Couleurs (clair) */
+  --bg: #f5efdb;           
+  --text: #0e1419;
+  --text-muted: #5d5144;
+  --surface: #ffffff;
+  --border: #e6dfd5;
+  --accent: #e67e22;
+
+  /* Nav/Footer + liens */
+  --nav-bg: var(--bg);
+  --nav-scrolled: var(--bg);
+  --nav-link: #024155;
+  --nav-link-hover: #3f240a;
+
+  /* UI helpers */
+  --shadow: 0 8px 24px rgba(0,0,0,.08);
+  --hover-bg: rgba(0,0,0,.03);
+  --chip-bg: rgba(0,0,0,.04);
+  --chip-border: var(--border);
+
+  /* Form inputs */
+  --input-bg: #ffffff;
+  --input-border: #cfcfcf;
+  --input-placeholder: #8c8c8c;
+
+  /* Hero vignette premium */
+  --hero-vignette: rgba(0,0,0,.035);
+}
+
+/* ===== Thème sombre ===== */
+[data-theme="dark"]{
+  --bg: #0f141a;
+  --text: #e9eef3;
+  --text-muted: #b7c1cc;
+  --surface: #121a22;
+  --border: #1e2833;
+  --accent: #ffb86b;
+
+  --nav-bg: var(--bg);
+  --nav-scrolled: var(--bg);
+  --nav-link: #e9eef3;
+  --nav-link-hover: #cde8ff;
+
+  --shadow: 0 12px 32px rgba(0,0,0,.45);
+  --hover-bg: rgba(255,255,255,.06);
+  --chip-bg: rgba(255,255,255,.06);
+  --chip-border: #2a3644;
+
+  --input-bg: #0f141a;
+  --input-border: #27323f;
+  --input-placeholder: #9aa7b6;
+
+  --hero-vignette: rgba(255,255,255,.06);
+}
+
+/* ===== Reset body propre (PAS de couleur en dur ici) ===== */
+html, body{
+  background: var(--bg);
+  color: var(--text);
+}
+
+body{
   font-family: 'Montserrat', sans-serif;
-  background-color: #f2dcb8;
-  color: #2c2c2c;
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -11,11 +72,14 @@ body {
   min-width: 320px;
 }
 
-
-/* Ajout d’un espace en haut pour la navbar uniquement en desktop */
-@media (min-width: 768px) {
-  body {
-    padding-top: 80px; /* ajuste selon la hauteur réelle de ta navbar */
-  }
+/* Espace sous la navbar fixe en desktop */
+@media (min-width: 768px){
+  body{ padding-top: 80px; }
 }
 
+/* Transitions douces (thème) */
+*{ transition: background-color .25s ease, color .25s ease, border-color .25s ease; }
+
+/* Sélection neutre + tap mobile propre */
+::selection, ::-moz-selection{ background: transparent; color: inherit; }
+a, button, .btn{ -webkit-tap-highlight-color: transparent; }

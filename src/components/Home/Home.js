@@ -7,48 +7,51 @@ import Skills from '../Skills/Skills';
 import Resume from '../Resume';
 import Footer from '../Footer/Footer';
 import './Home.css';
-import Image from '../../images/Image.jpeg'; 
+import Image from '../../images/Image.jpeg';
 
 function Home() {
   return (
-    <div>
+    <>
       <Navbar />
-      <section id="home" className="container text-center my-5">
-           <img src={Image} alt="Portrail du développeur" className="img-fluid my-3 round-image" />
-        <h1>Hello! Je suis Marwa Derbel</h1>
-        <br></br>
-        <p className="lead">
-          Développeuse Web Full Stack spécialisée dans la création d'applications modernes et performantes.
-        </p>
-    
-      </section>
-      
-      <hr />
 
-      <section id="about">
-        <About />
-      </section>
+      <main>
+        {/* HERO full-bleed (plus de .container ici) */}
+        <section id="home" className="home-hero" aria-label="Accueil">
+          <div className="home-inner">
+            <img
+              src={Image}
+              alt="Portrait de Marwa Derbel, développeuse"
+              className="round-image"
+              loading="lazy"
+            />
+            <h1>Hello! Je suis Marwa Derbel</h1>
+            <p className="lead">
+              Développeuse Full-Stack Web & Mobile — React, Node, Java/Spring, Symfony
+            </p>
+            <div className="hero-actions">
+              <a href="#projects" className="btn-accent">Voir mes projets</a>
+              <a href="#contact" className="btn-ghost">Me contacter</a>
+            </div>
+          </div>
+        </section>
 
-      <hr />
+        <div className="section-sep" aria-hidden="true" />
 
-      <section id="skills">
-        <Skills />
-      </section>
+        <section id="about" aria-label="À propos"><About /></section>
+        <div className="section-sep" aria-hidden="true" />
 
-      <hr />
+        <section id="skills" aria-label="Compétences"><Skills /></section>
+        <div className="section-sep" aria-hidden="true" />
 
-      <section id="projects">
-        <Projects />
-      </section>
+        <section id="projects" aria-label="Projets"><Projects /></section>
+        <div className="section-sep" aria-hidden="true" />
 
-      <hr />
+        <section id="contact" aria-label="Contact"><Contact /></section>
+        <section id="resume" aria-label="CV"><Resume /></section>
+      </main>
 
-      <section id="contact">
-        <Contact />
-        <Resume />
-      </section>
       <Footer />
-    </div>
+    </>
   );
 }
 
