@@ -1,20 +1,19 @@
-// crée ce fichier
 const projects = [
   {
     name: 'Plantélys',
     description: "Plateforme e-commerce horticole (communauté + rappels d’entretien).",
     tags: ['Full-Stack', 'React', 'Node'],
     link: null,
-    githubLink: 'https://github.com/DERBELAX',
-    image: null // mets le chemin d’image si dispo, sinon null
+    githubLink: 'https://github.com/DERBELAX/plantalyse_V0.git',
+    image: require('../images/Plantélys.png') 
   },
   {
     name: 'Application de paiement',
     description: 'Module de paiement sécurisé (transactions, SQL).',
     tags: ['Back-End', 'Java', 'Spring'],
     link: null,
-    githubLink: 'https://github.com/DERBELAX',
-    image: null
+    githubLink: 'https://github.com/DERBELAX/PayYouPayMe.git',
+    image: require('../images/PayYouPayMe.png') 
   },
   {
     name: 'Kasa',
@@ -48,14 +47,7 @@ const projects = [
     githubLink: 'https://github.com/DERBELAX/booki-starter-code/tree/P2-BOOKI',
     image: require('../images/Booki.png')
   },
-  {
-    name: 'Symfony/PHP – Admin',
-    description: 'Gestion de contenu avec authentification et CRUD.',
-    tags: ['Symfony'],
-    link: null,
-    githubLink: 'https://github.com/DERBELAX',
-    image: null
-  }
+  
 ];
 
 export default projects;

@@ -28,6 +28,49 @@
   /* Hero vignette premium */
   --hero-vignette: rgba(0,0,0,.035);
 }
+/* ===== Palette SAAS (bleu → indigo → violet) ===== */
+:root[data-palette="saas"]{
+  --bg: #F7FAFF;
+  --bg-hero: radial-gradient(1200px 520px at 50% -220px, rgba(99,102,241,.14) 0%, #F7FAFF 60%),
+             radial-gradient(900px 380px at 0% 20%, rgba(14,165,233,.10) 0%, transparent 60%),
+             radial-gradient(900px 380px at 100% 20%, rgba(168,85,247,.10) 0%, transparent 60%);
+  --surface:#FFFFFF;
+  --border:#E6ECF8;
+  --accent:#6366F1;  /* indigo */
+  --accent-2:#0EA5E9;/* cyan */
+  --accent-3:#A855F7;/* violet */
+  --link:#0B4CC2;
+  --link-hover:#062a6f;
+
+  --shadow: 0 10px 30px rgba(17,24,39,.08);
+  --hover-bg: rgba(0,0,0,.03);
+  --chip-bg:#fff;
+  --chip-border:#E6ECF8;
+
+  --hero-vignette: rgba(0,0,0,.035);
+}
+
+[data-theme="dark"][data-palette="saas"]{
+  --bg:#0B1220;
+  --bg-hero: radial-gradient(1200px 520px at 50% -220px, rgba(99,102,241,.23) 0%, #0B1220 60%),
+             radial-gradient(900px 380px at 0% 20%, rgba(14,165,233,.16) 0%, transparent 60%),
+             radial-gradient(900px 380px at 100% 20%, rgba(168,85,247,.16) 0%, transparent 60%);
+  --surface:#0F172A;
+  --border:#1E293B;
+  --accent:#818CF8;
+  --accent-2:#38BDF8;
+  --accent-3:#C084FC;
+  --link:#E4EDFF;
+  --link-hover:#FFFFFF;
+
+  --shadow: 0 14px 34px rgba(0,0,0,.45);
+  --hover-bg: rgba(255,255,255,.06);
+  --chip-bg: rgba(255,255,255,.06);
+  --chip-border:#22314B;
+
+  --hero-vignette: rgba(255,255,255,.07);
+}
+
 
 /* ===== Thème sombre ===== */
 [data-theme="dark"]{
@@ -83,3 +126,29 @@ body{
 /* Sélection neutre + tap mobile propre */
 ::selection, ::-moz-selection{ background: transparent; color: inherit; }
 a, button, .btn{ -webkit-tap-highlight-color: transparent; }
+
+
+/* Dégradé animé (pour boutons / bordures) */
+@keyframes gradientShift {
+  0%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
+}
+
+/* Révélation douce */
+@keyframes riseIn {
+  0%{ opacity:0; transform: translateY(18px) scale(.98); filter: blur(6px); }
+  100%{ opacity:1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+/* Flottement subtil (pour blobs décoratifs) */
+@keyframes floatY {
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-12px); }
+}
+
+/* Utilitaires */
+.anim-rise{ animation: riseIn .7s cubic-bezier(.2,.65,.2,1) both; }
+.anim-delay-1{ animation-delay: .08s; }
+.anim-delay-2{ animation-delay: .16s; }
+.anim-delay-3{ animation-delay: .24s; }

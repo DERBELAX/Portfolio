@@ -1,33 +1,55 @@
-/* HERO full-bleed */
+/* =========================
+   HERO full-bleed (SaaS)
+   ========================= */
 .home-hero{
   position: relative;
-  background: var(--bg-hero, var(--bg)); 
-  width: 100%;
+  background: var(--bg-hero, var(--bg));
   padding: 96px 0 64px;
   box-shadow:
     inset 0 1px 0 var(--border),
     inset 0 -1px 0 var(--border),
-    inset 0 80px 140px -60px var(--hero-vignette, rgba(0,0,0,.035)),
-    inset 0 -80px 140px -60px var(--hero-vignette, rgba(0,0,0,.035));
+    inset 0 80px 140px -60px var(--hero-vignette),
+    inset 0 -80px 140px -60px var(--hero-vignette);
+  overflow: hidden;
 }
-.home-hero::after{
-  content:""; position:absolute; inset:0; pointer-events:none;
-  box-shadow: inset 0 0 120px var(--hero-vignette, rgba(0,0,0,.035));
-}
-
-/* Contenu centré */
 .home-inner{
-  max-width: 1100px;
-  margin-inline: auto;
-  padding-inline: clamp(16px, 5vw, 32px);
-  text-align: center;
+  max-width:1100px;
+  margin-inline:auto;
+  padding-inline:clamp(16px,5vw,32px);
+  text-align:center;
 }
 
-/* Titres / texte */
+/* --- Blobs décoratifs --- */
+.blob{
+  position:absolute; width:520px; height:520px; border-radius:50%;
+  filter: blur(60px); opacity:.55; animation: floatY 7s ease-in-out infinite;
+}
+.blob-left{
+  left:-160px; top:-140px;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 85%, transparent) 0%, transparent 70%);
+}
+.blob-right{
+  right:-160px; top:-110px; animation-duration: 8.5s;
+  background:
+    radial-gradient(closest-side, color-mix(in oklab, var(--accent-2) 85%, transparent) 0%, transparent 70%),
+    radial-gradient(closest-side, color-mix(in oklab, var(--accent-3) 75%, transparent) 0%, transparent 80%);
+}
+
+/* --- Titre / sous-titre --- */
+/* Utilise .gradient-title sur le <h1> si tu veux l’effet texte dégradé animé */
+.gradient-title{
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 900;
+  margin:14px 0 8px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+  background-size: 180% 180%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: gradientShift 12s ease infinite;
+}
 .home-hero h1{
-  font-size: clamp(2rem, 3.6vw, 3.2rem);
-  font-weight: 800;
-  margin: 14px 0 8px;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 900;
+  margin:14px 0 8px;
   color: var(--text);
 }
 .home-hero .lead{
@@ -35,39 +57,65 @@
   line-height: 1.8;
   max-width: 760px;
   margin: 0 auto;
-  color: var(--text-muted);
+  color: var(--text);
+  opacity: .86;
 }
 
-/* Avatar */
+/* --- Avatar --- */
 .round-image{
   border-radius: 50%;
   width: 220px; height: 220px; object-fit: cover;
   margin-bottom: 24px;
   box-shadow: var(--shadow);
-  transition: transform .3s ease-in-out;
+  transition: transform .25s ease;
 }
-.round-image:hover{ transform: scale(1.05); }
+.round-image:hover{ transform: translateY(-2px) scale(1.03); }
 
-/* CTA */
+/* --- CTA --- */
 .hero-actions{
   display:flex; gap:12px; margin-top:26px; flex-wrap:wrap; justify-content:center;
 }
-.btn-ghost, .btn-accent{
-  border-radius:999px; padding:12px 20px; font-weight:700;
+.btn-ghost, .btn-gradient, .btn-accent{
+  border-radius:999px; padding:12px 20px; font-weight:700; text-decoration:none;
   border:1px solid var(--border);
   background: var(--surface); color: var(--text);
   transition: transform .15s, background-color .2s, border-color .2s, color .2s;
-  text-decoration: none;
 }
-.btn-ghost:hover, .btn-accent:hover{ transform: translateY(-1px); background: var(--hover-bg, rgba(0,0,0,.03)); }
-.btn-accent{ background: var(--accent); border-color: var(--accent); color:#1a1a1a; }
+.btn-ghost:hover{ transform: translateY(-1px); background: var(--hover-bg); }
 
-/* Séparateur doux (remplace <hr>) */
+/* bouton principal : dégradé animé + glow léger */
+.btn-gradient, .btn-accent{
+  border: 0;
+  color: #0b0b0b;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+  background-size: 200% 200%;
+  animation: gradientShift 10s linear infinite;
+  box-shadow: 0 8px 18px color-mix(in oklab, var(--accent) 25%, transparent);
+}
+.btn-gradient:hover, .btn-accent:hover{
+  transform: translateY(-1px);
+  filter: saturate(1.05);
+}
+
+/* --- Séparateur doux entre sections --- */
 .section-sep{
-  height: 1px; background: var(--border);
-  max-width: 1100px; margin: 24px auto 0; opacity: .9;
+  height:1px; background: var(--border);
+  max-width:1100px; margin:24px auto 0; opacity:.9;
 }
 
-/* ancres propres sous navbar fixe */
+/* --- Ancre propre sous navbar fixe --- */
 section{ scroll-margin-top: 90px; }
 html{ scroll-behavior: smooth; }
+
+/* =========================
+   Keyframes (self-contained)
+   ========================= */
+@keyframes gradientShift{
+  0%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
+}
+@keyframes floatY{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-12px); }
+}

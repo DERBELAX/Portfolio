@@ -1,54 +1,97 @@
-/* ===== Projets : fond + texte pilotés par le thème ===== */
-#projects{ 
-  padding: 60px 0; 
+/* =========================
+   Section Projets — SaaS
+   ========================= */
+
+/* Fond + couleur pilotés par le thème/palette */
+#projects{
+  padding: 60px 0;
   background: var(--bg);
   color: var(--text);
 }
 
-/* Filtres (pills) */
-.filters{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-.filter-pill{
-  border:1px solid var(--chip-border);
-  background: var(--chip-bg);
-  color: var(--text);
-  padding:.35rem .75rem;
-  border-radius:999px;
-  font-weight:600; font-size:.9rem;
-  transition: background-color .2s, border-color .2s, color .2s, transform .15s;
-}
-.filter-pill:hover{ background: var(--hover-bg); transform: translateY(-1px); }
-.filter-pill.active{
-  background: var(--accent); color:#1a1a1a; border-color: var(--accent);
+/* ---------- Bar de filtres ---------- */
+.filters-wrap{
+  position: sticky; top: 64px; z-index: 10;
+  margin-bottom: 18px; padding: 8px 0;
+  background: color-mix(in oklab, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(140%) blur(6px);
+  border-bottom: 1px solid var(--border);
 }
 
-/* Cartes projet */
+.filters{
+  display:flex; gap:10px; align-items:center; flex-wrap:nowrap;
+  overflow-x:auto; -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+}
+.filters::-webkit-scrollbar{ height:6px; }
+.filters::-webkit-scrollbar-thumb{ background: var(--chip-border); border-radius: 999px; }
+
+/* pill de filtre — reset bouton + style pill */
+button.filter-pill{
+  -webkit-appearance: none; appearance: none; border: none;
+  display:inline-flex; align-items:center; justify-content:center; white-space:nowrap;
+  padding:.46rem .9rem; line-height:1; cursor:pointer; user-select:none;
+  border-radius:999px; font-weight:600; font-size:.92rem;
+  background: var(--chip-bg); color: var(--text);
+  border: 1px solid var(--chip-border);
+  transition: background-color .2s, border-color .2s, color .2s, transform .15s, box-shadow .2s;
+}
+button.filter-pill:hover{ background: var(--hover-bg); transform: translateY(-1px); }
+button.filter-pill:focus-visible{
+  outline: 0;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+/* état actif (plein accent) */
+button.filter-pill.active{
+  background: var(--accent);
+  color:#0b0b0b;
+  border-color: var(--accent);
+  box-shadow: 0 6px 14px color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+/* ---------- Cartes projet (clean) ---------- */
 .project-card{
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius:16px;
   overflow:hidden;
   box-shadow: var(--shadow);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
-.project-card:hover{ transform:translateY(-6px); box-shadow: 0 14px 30px rgba(0,0,0,.18); }
+.project-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.12);
+  border-color: color-mix(in oklab, var(--accent) 28%, var(--border));
+}
+/* supprime tout ancien halo gradient éventuel */
+.project-card::after{ content:none !important; }
 
 .project-card .card-body{ background: var(--surface); color: var(--text); }
 .project-card .card-title{ color: var(--text); font-weight: 800; }
-.project-card .card-text,
-.project-description{ color: var(--text); opacity: .98; }
+.project-card .card-text{ color: var(--text); opacity: .9; }
 
-/* Image / placeholder */
-.project-image{ 
-  height:200px; object-fit:cover;  
+/* Médias : léger zoom image au hover */
+.project-media{ position: relative; overflow: hidden; }
+.project-image{
+  display:block; width:100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   border-bottom: 2px solid var(--accent);
+  transition: transform .5s ease;
 }
+.project-card:hover .project-image{ transform: scale(1.03); }
+
+/* Placeholder NEUTRE (pas de dégradé ni shimmer) */
 .placeholder-gradient{
-  height:200px;
-  background: linear-gradient(135deg, var(--bg) 0%, var(--surface) 50%, var(--bg) 100%);
+  width:100%; aspect-ratio: 16/9;
+  background: var(--surface);
   border-bottom: 2px solid var(--accent);
 }
+.placeholder-gradient::after{ display:none; }
 
-/* Tags sous les cartes */
+/* tags */
 .tags{ display:flex; flex-wrap:wrap; gap:6px; }
 .tag{
   display:inline-block; font-size:.78rem; padding:.18rem .6rem;
@@ -58,28 +101,26 @@
   color: var(--text);
 }
 
-/* Boutons dans les cartes (ex. Voir le site / Code) */
+/* boutons */
 #projects .btn{ border-radius:999px; padding:.55rem 1.1rem; font-weight:700; }
-
-#projects .btn-outline-dark{
+#projects .btn-outline{
   background: transparent;
   border: 1px solid var(--chip-border);
   color: var(--text);
+  transition: background-color .2s, border-color .2s, transform .15s;
 }
-#projects .btn-outline-dark:hover{
+#projects .btn-outline:hover{
   background: var(--hover-bg);
   border-color: var(--accent);
-  color: var(--text);
+  transform: translateY(-1px);
 }
 
-#projects .btn-dark{             /* si tu utilises un bouton sombre */
-  background: var(--text);
-  color: var(--surface);
-  border: 1px solid var(--text);
+/* ---------- A11y & reduce motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition:none !important; }
 }
-#projects .btn-dark:hover{ filter: brightness(.92); }
 
-/* Variables d’appoint (si pas déjà dans theme.css) */
+/* ---------- Variables d’appoint (si pas déjà globales) ---------- */
 :root{
   --hover-bg: rgba(0,0,0,.03);
   --chip-bg: rgba(0,0,0,.04);

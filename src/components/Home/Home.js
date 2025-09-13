@@ -17,19 +17,22 @@ function Home() {
       <main>
         {/* HERO full-bleed (plus de .container ici) */}
         <section id="home" className="home-hero" aria-label="Accueil">
-          <div className="home-inner">
-            <img
-              src={Image}
-              alt="Portrait de Marwa Derbel, développeuse"
-              className="round-image"
-              loading="lazy"
-            />
-            <h1>Hello! Je suis Marwa Derbel</h1>
-            <p className="lead">
+        {/* Blobs décoratifs */}
+          <div className="blob blob-left" aria-hidden="true" />
+          <div className="blob blob-right" aria-hidden="true" />
+
+          <div className="home-inner anim-rise">
+            <img src={Image} alt="Portrait de Marwa Derbel, développeuse"
+                className="round-image anim-rise anim-delay-1" loading="lazy" />
+            <h1 className="gradient-title anim-rise anim-delay-2">
+              Hello! Je suis Marwa Derbel
+            </h1>
+            <p className="lead anim-rise anim-delay-3">
               Développeuse Full-Stack Web & Mobile — React, Node, Java/Spring, Symfony
             </p>
-            <div className="hero-actions">
-              <a href="#projects" className="btn-accent">Voir mes projets</a>
+
+            <div className="hero-actions anim-rise anim-delay-3">
+              <a href="#projects" className="btn-gradient">Voir mes projets</a>
               <a href="#contact" className="btn-ghost">Me contacter</a>
             </div>
           </div>
