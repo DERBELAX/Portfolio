@@ -24,11 +24,11 @@ function Home() {
           <div className="home-inner anim-rise">
             <img src={Image} alt="Portrait de Marwa Derbel, développeuse"
                 className="round-image anim-rise anim-delay-1" loading="lazy" />
-            <h1 className="gradient-title anim-rise anim-delay-2">
-              Hello! Je suis Marwa Derbel
+           <h1 className="gradient-title anim-rise anim-delay-2">
+              Marwa Derbel — Développeuse Full-Stack React & {/** choisis Node ou Spring */}Node
             </h1>
             <p className="lead anim-rise anim-delay-3">
-              Développeuse Full-Stack Web & Mobile — React, Node, Java/Spring, Symfony
+              SPA performantes (React) & APIs sécurisées ({/* Node ou Spring */}Node). 
             </p>
 
             <div className="hero-actions anim-rise anim-delay-3">

@@ -4,8 +4,8 @@ function Resume() {
   return (
     <div className="container my-5 text-center">
       <a 
-        href="/CV_Marwa-Derbel.pdf" 
-        download="CV_Marwa-Derbel.pdf" 
+        href="/Marwa_Derbel.pdf" 
+        download="Marwa_Derbel.pdf" 
         className="btn btn-outline-dark mt-3"
       >
         Télécharger mon CV

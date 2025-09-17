@@ -1,72 +1,133 @@
-/* Section */
-#about{ padding:50px 0; background-color:var(--bg); }
-.about-title{
-  text-align:center; padding:20px;
-  color:var(--text); font-size:2.1rem; font-weight:800; letter-spacing:.2px;
+:root{
+  --bg:#f8fafc; --surface:#fff; --text:#0e1116; --border:#e5e7eb; --accent:#7c6cf6;
+  --shadow:0 6px 16px rgba(0,0,0,.06);
+  --badge-bg: rgba(0,0,0,.04);
+}
+[data-theme="dark"]{
+  --bg:#0b1220; --surface:#0f172a; --text:#f8fafc; --border:#1f2a3b;
+  --shadow:0 10px 22px rgba(0,0,0,.35);
+  --badge-bg: rgba(255,255,255,.06);
 }
 
-/* === Grille 2 colonnes égales (desktop), 1 sur mobile === */
+/* Section */
+#about{
+  padding: 56px 0;
+  background-color: var(--bg);
+}
+
+/* Titre de section : taille fluide + bon contraste */
+.about-title{
+  text-align: center;
+  padding: 20px;
+  color: var(--text);
+  font-size: clamp(1.7rem, 1.3rem + 1.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: .2px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Grille (1 col mobile, 2 cols desktop) */
 .about-grid{
-  display:grid;
-  grid-template-columns:1fr; /* mobile */
-  gap:24px;
-  align-items:stretch;       /* égalise la hauteur des cartes */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: stretch; /* égalise la hauteur des cartes */
 }
 @media (min-width: 992px){
   .about-grid{
-    grid-template-columns:repeat(2, minmax(520px, 1fr));
-    gap:28px;
+    grid-template-columns: repeat(2, minmax(520px, 1fr));
+    gap: 28px;
   }
 }
 @media (min-width: 1400px){
   .about-grid{
-    grid-template-columns:repeat(2, minmax(580px, 1fr));
-    gap:32px;
+    grid-template-columns: repeat(2, minmax(580px, 1fr));
+    gap: 32px;
   }
 }
 
 /* Cartes */
 .about-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  box-shadow:var(--shadow);
-  border-radius:16px;
-  padding:24px 28px;
-
-  display:flex; flex-direction:column; height:100%; /* => hauteurs identiques */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .about-card h3{
-  color:var(--text); margin:0 0 10px; line-height:1.2;
-  font-size:1.7rem; font-weight:800;
-}
-#about p{
-  font-size:1.05rem;
-  line-height:1.75;
   color: var(--text);
-  opacity: 1;                 /* <- plus d’opacité réduite */
-  margin-bottom:14px;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  font-size: clamp(1.2rem, 1.05rem + .6vw, 1.7rem);
+  font-weight: 800;
 }
 
+/* Paragraphes lisibles (pas d’opacité dégradant le contraste) */
+#about p{
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin: 0 0 14px;
+}
 
-/* Listes : couleur pleine + marqueurs accent */
-.about-list{ margin:0 0 10px; padding-left:1.2rem; list-style: disc; }
+/* Listes : marqueurs accentués, texte plein */
+.about-list{
+  margin: 0 0 10px;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
 .about-list li{
   color: var(--text);
-  opacity: 1;                 /* <- enlève l’effet “grisé” */
   line-height: 1.7;
   margin: 6px 0;
 }
-.about-list li strong{ color: var(--text); font-weight: 700; }
-.about-list li::marker{ color: var(--accent); }
+.about-list li strong{
+  color: var(--text);
+  font-weight: 700;
+}
+.about-list li::marker{
+  color: var(--accent);
+}
 
-/* Badges : fond adapté au thème */
+/* Badges */
+.about-badges{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
 .about-badges span{
-  font-size:.85rem; padding:.25rem .6rem; border-radius:999px;
+  font-size: .85rem;
+  padding: .25rem .6rem;
+  border-radius: 999px;
   background: var(--badge-bg);
   color: var(--text);
-  border:1px solid var(--border);
+  border: 1px solid var(--border);
+  line-height: 1.2;
 }
-/* Respect des préférences de mouvement */
+
+/* Focus visibles (a11y clavier) */
+.about-card:focus-within{
+  outline: 3px solid rgba(124,108,246,.4);
+  outline-offset: 2px;
+}
+.about-card a:focus-visible,
+.about-card button:focus-visible{
+  outline: 3px solid rgba(124,108,246,.45);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Respect des préférences utilisateur */
 @media (prefers-reduced-motion: reduce){
-  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition:none !important; }
+  *{ animation: none !important; transition: none !important; }
+}
+
+/* Petits écrans : respirations adaptées */
+@media (max-width: 575.98px){
+  #about{ padding: 44px 0; }
 }

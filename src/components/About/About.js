@@ -48,11 +48,11 @@ function About() {
             Développeuse Full-Stack Web & Mobile
           </h3>
          <p>
-            <strong>Développeuse full-stack</strong> (React&nbsp;/ Node.js&nbsp;/ Java&nbsp;Spring&nbsp;/ PHP&nbsp;Symfony),
-            je conçois des interfaces <strong>performantes</strong> et <strong>accessibles</strong> et
-            des <strong>APIs robustes</strong>, optimisées pour l’<strong>UX</strong> et le
-            <strong>référencement SEO</strong>.
+            Je conçois des SPA <strong>rapides</strong> et des APIs <strong>fiables</strong> avec 
+            <strong> React</strong> + <strong>{/* Node ou Spring */}Node</strong> et <strong>PostgreSQL</strong>. 
+            Concret : 100% Lighthouse (accessibilité), {"<"} 1.5s LCP (Kasa), 100+ transactions OK (PayYouPayMe).
           </p>
+
 
           <p>
             Diplômée en <strong>Développement web</strong> et{" "}
